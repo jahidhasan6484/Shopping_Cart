@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="phoneDecrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phoneInput" type="text" class="form-control text-center" value="1">
+                           <button id="phoneIncrease" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="phonePrice">1219</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="caseDecrease" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="caseInput" type="text" class="form-control text-center" value="1">
+                           <button id="caseIncrease" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="casePrice">59</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -77,6 +77,51 @@
          </div>
       </div>
    </section>
+   <!-- JavaScript Section  -->
+   <script>
+   // For phone
+      document.getElementById("phoneIncrease").addEventListener("click", function(){
+         const phoneInput = document.getElementById("phoneInput").value;
+         const phoneCount = parseInt(phoneInput) + 1;
+         document.getElementById("phoneInput").value = phoneCount;
+         document.getElementById("phonePrice").innerText = phoneCount * 1219;
+      });
+
+      document.getElementById("phoneDecrease").addEventListener("click", function(){
+         const phoneInput = document.getElementById("phoneInput").value;
+         const phoneCount = parseInt(phoneInput) - 1;
+         if(phoneCount >= 0){
+            document.getElementById("phoneInput").value = phoneCount;
+         }
+         if(phoneCount >=0){
+            document.getElementById("phonePrice").innerText = phoneCount * 1219;
+         }
+   });
+      // For case
+      document.getElementById("caseIncrease").addEventListener("click", function(){
+         // console.log("Case increase +1");
+         const caseInput = document.getElementById("caseInput").value;
+         // console.log(caseInput);
+         const caseCount = parseInt(caseInput) + 1;
+         // console.log(caseCount);
+         document.getElementById("caseInput").value = caseCount;
+         document.getElementById("casePrice").innerText = caseCount * 59;
+      });
+
+      document.getElementById("caseDecrease").addEventListener("click", function(){
+         // console.log("Case decrease -1");
+         const caseInput = document.getElementById("caseInput").value;
+         // console.log(caseInput);
+         const caseCount = parseInt(caseInput) - 1;
+         // console.log(caseCount);
+         if(caseCount >= 0){
+            document.getElementById("caseInput").value = caseCount;
+         }
+         if(caseCount >=0){
+            document.getElementById("casePrice").innerText = caseCount * 59;
+         }
+      });
+   </script>
 </body>
 
 </html>
